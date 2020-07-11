@@ -1,0 +1,13 @@
+MAGAZON LUIZ - MAPEAMENTO OBJETO-RELACIONAMENTO
+
+
+usuarios(idUsuario, idFuncionario, senha)
+
+categorias(idCategoria, nomeCategoria, descCategoria)
+
+produtos(idProduto, nomeProduto, descProduto, precoCompraProduto, precoVendaProduto, dataInserção, dataAtualizacao, idCategoria_FK)
+
+estoque(idEstoque, idProduto_FK, qtdEstoque)
+
+
+Considerando que o sistema de cadastro e gerenciamento de funcionários já existe, este banco de dados manterá apenas uma base de dados de usuários, baseado em um iD do usuário e uma senha que será cadastrada individualmente ou pode ser migrada de um banco de dados existente.

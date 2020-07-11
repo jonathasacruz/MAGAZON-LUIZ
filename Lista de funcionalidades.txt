@@ -1,0 +1,30 @@
+[/] O sistema deve conter uma área onde os funcionários poderão gerenciar os produtos.
+[/] O sistema deve conter uma área onde os funcionários poderão gerenciar as categorias dos produtos.
+[/] A área de categoria deve conter as informações de “Categoria” e “Descrição”.
+[X] A área de produto deve conter as informações de “Nome do Produto”, “Descrição doproduto”, “Preço de compra do produto”, “Preço de venda do produto”, “Quantidadedo produto no estoque”, “Tipo de categoria”, “Data da primeira inserção do produto”,“Data da última atualização do produto”
+[/] Se uma categoria for deletada, os produtos devem ser deletados automaticamente
+    Implementado como uma regra no banco de dados;
+[ ] O funcionário poderá adicionar, editar, visualizar e deletar o produto / categoria.
+[ ] PDF com manual de instalação
+
+
+Lista de páginas
+[X] Página inicial com login/cadastro de usuários
+    [X] Mensagem de erro para informações de login inexistentes
+    [X] Cadastrar leva para página de cadastro
+    
+[X] Página de cadastro de usuários
+    [X] Mensagem de usuário existente
+    [X] Mensagem de usuário cadastrado com sucesso
+
+[/] Página para gerenciar categorias
+    [/] tabela com lista de categorias com três botões: Exibir produtos, editar categoria, excluir categoria.
+        [ ] Excluir gera popup de confirmação
+    [ ] O botão exibir produtos abre uma janela flutuante com uma tabela de produtos da categoria selecionada.
+    [ ] Cadastrar categoria
+[/] Página para gerenciar produtos
+    [/] Tabela com lista de produtos,
+        [ ] Reordenar produtos por código, preço, nome, categoria e fazer filtros(js?).
+    [ ] Botão para editar e excluir
+        [ ] editar e excluir geram popup de confirmação
+    [ ] Cadastrar Produto
