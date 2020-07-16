@@ -11,8 +11,8 @@ $consulta = mysqli_query($connect, $sql);
 $usuario = mysqli_fetch_all($consulta);
 if (mysqli_num_rows($consulta) != 1) {
 ?>
-    <text> ESSA É UMA ÁREA RESTRITA, FAÇA LOGIN.</text> 
-    <br> 
+    <text> ESSA É UMA ÁREA RESTRITA, FAÇA LOGIN.</text>
+    <br>
     <button type="button" name="index" onclick="location.href='index.php'">LOGIN</button>
 <?php
 } else {
@@ -42,7 +42,7 @@ if (mysqli_num_rows($consulta) != 1) {
             <td><input type="text" name="novaDataInserção"></input></td>
             <td><input type="text" name="novaAtualizacao"></input></td>
         </tr>
-
+            
 
         <?php
         $sql = "SELECT * FROM produtos";
@@ -78,11 +78,13 @@ if (mysqli_num_rows($consulta) != 1) {
                 }
                 ?>
             </tr>
-    <?php
-        }
-    }
-    ?>
+        <?php
+        } ?>
+    </table>
+<?php
+}
+?>
 
-    <?php
-    require_once 'footer.php';
-    ?>
+<?php
+require_once 'footer.php';
+?>

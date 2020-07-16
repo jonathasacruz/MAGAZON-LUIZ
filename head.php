@@ -18,6 +18,17 @@
 $erros['matricula'] = $erros['nome'] = $erros['login'] = $erros['senha'] = $erros['no_login'] = "";
 session_start();
 $_SESSION['login'] = $_SESSION['login'] ?? NULL;
+$_SESSION['usuario'] = $_SESSION['usuario'] ?? NULL;
+
+
 ?>
 <h1>Magazon Luiz - Estoque</h1>
+
+<?php
+if (!is_null($_SESSION['login'])){
+  ?>
+  <text> Bem vindo <?php echo $_SESSION['usuario'];?> </text>
+<?php
+}?>
+
 <hr>
