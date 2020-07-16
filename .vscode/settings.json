@@ -1,3 +1,10 @@
 {
-    "sqltools.connections": []
+    "sqltools.connections": [],
+    "cSpell.words": [
+        "passwordhash",
+        "usuarios"
+    ],
+    "cSpell.ignoreWords": [
+        "where"
+    ]
 }

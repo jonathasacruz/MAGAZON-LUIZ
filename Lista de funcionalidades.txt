@@ -1,6 +1,6 @@
 [/] O sistema deve conter uma área onde os funcionários poderão gerenciar os produtos.
 [/] O sistema deve conter uma área onde os funcionários poderão gerenciar as categorias dos produtos.
-[/] A área de categoria deve conter as informações de “Categoria” e “Descrição”.
+[X] A área de categoria deve conter as informações de “Categoria” e “Descrição”.
 [X] A área de produto deve conter as informações de “Nome do Produto”, “Descrição doproduto”, “Preço de compra do produto”, “Preço de venda do produto”, “Quantidadedo produto no estoque”, “Tipo de categoria”, “Data da primeira inserção do produto”,“Data da última atualização do produto”
 [/] Se uma categoria for deletada, os produtos devem ser deletados automaticamente
     Implementado como uma regra no banco de dados;

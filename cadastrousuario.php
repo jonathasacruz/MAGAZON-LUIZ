@@ -12,7 +12,7 @@ if (isset($_POST['cadastrar'])) {
 	$nome = mysqli_real_escape_string($connect, $_POST['nome']);
 	$login = mysqli_escape_string($connect, $_POST['login']);
 	$senha = mysqli_escape_string($connect, $_POST['senha']);
-	$senha = password_hash($senha, PASSWORD_DEFAULT);
+	
 	if (empty($matricula) || !is_int($matricula)) {
 		$erros['matricula'] = '*Campo numérico obrigatório';
 	}
@@ -27,14 +27,14 @@ if (isset($_POST['cadastrar'])) {
 	}
 	//Consulta se já existe matrícula ou login no banco de dados
 	if (!empty($matricula) && is_int($matricula) && !empty($nome) && !empty($login) && !empty($senha)) {
-
+		$senha = password_hash($senha, PASSWORD_DEFAULT);
 		$sql = "SELECT login, matricula FROM usuarios WHERE login = '$login' OR matricula = '$matricula'";
 		$consulta = mysqli_query($connect, $sql);
 		if (mysqli_num_rows($consulta) == 0) {
 			$sql = "INSERT INTO usuarios (matricula, nome, login, senha) values ('$matricula','$nome','$login','$senha')";
 			$consulta = mysqli_query($connect, $sql);
 			if ($consulta) {
-				$erros['no_login'] = "Cadastro realizado com sucesso <br> <button type=\"button\" name=\"login\" onclick=\"location.href='index.php'\">Página de Login</button>";
+				$erros['no_login'] = 'Cadastro realizado com sucesso, faça login.';
 				
 			} else {
 				$erros['no_login'] = 'Não foi possível realizar o cadastro, contacte o administrador do sistema';

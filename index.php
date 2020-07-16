@@ -23,9 +23,9 @@ if (isset($_POST['botao-entrar'])) {
 		$sql = "SELECT * FROM usuarios WHERE login = '$login'";
 		$consulta = mysqli_query($connect, $sql);
 		$passwordhash = mysqli_fetch_array($consulta);
-		if (mysqli_num_rows($consulta) == 1 AND password_verify($senha,$passwordhash['senha'])) {
+		if (mysqli_num_rows($consulta) == 1 and password_verify($senha, $passwordhash['senha'])) {
 			$_SESSION['login'] = $login;
-			header("Location: gerenciarestoque.php");
+			header("Location: gerenciarcategorias.php");
 		} else {
 			$erros['no_login'] = "Usuário inexistente ou senha incorreta";
 		}

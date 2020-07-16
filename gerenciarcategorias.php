@@ -15,34 +15,37 @@ if (mysqli_num_rows($consulta) != 1) {
     echo "<button type=\"button\" name=\"gerenciar-produtos\" onclick=\"location.href='gerenciarprodutos.php'\">Gerenciar Produtos</button>";
     echo "<button type=\"button\" name=\"gerenciar-categorias\" onclick=\"location.href='gerenciarcategorias.php'\">Gerenciar Categorias</button>";
     echo "<button type=\"button\" name=\"sair\" onclick=\"location.href='logout.php'\">SAIR</button>";
+?>
+    <table>
+        <tr>
+            <th>Categoria</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="novaCategoria"></input></td>
+            <td><input type="text" name="novaDescricao"></input></td>
+        </tr>
 
-$estrutura ='<table>
-<tr>
-<th>Categoria</th>
-<th>Descrição</th>
-</tr>
-<tr>
-<td><input type="text" name="novaCategoria"></input></td>
-<td><input type="text" name="novaDescricao"></input></td>
-</tr>
-';
+        <?php
+        $sql = "SELECT * FROM categorias";
+        $consulta = mysqli_query($connect, $sql);
+        $tabela = mysqli_fetch_all($consulta);
 
-echo $estrutura;
-
-
-$sql = "SELECT * FROM categorias";
-$consulta = mysqli_query($connect, $sql);
-$tabela = mysqli_fetch_all($consulta);
-
-foreach ($tabela as $key => $value) {
-    echo "<tr><td>$value[1]</td>";
-    echo "<td>$value[2]</td></tr>";
-}
-echo '</tr></table>';
-
-
-
-
+        foreach ($tabela as $key => $value) {
+        ?>
+            <tr>
+                <td>
+                    <?php echo $value[1] ?>
+                </td>
+                <td>
+                    <?php echo $value[2] ?>
+                </td>
+            </tr>
+        <?php
+        }
+        ?>
+    </table>
+<?php
 }
 ?>
 
