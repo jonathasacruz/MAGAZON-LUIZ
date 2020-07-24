@@ -1,0 +1,22 @@
+@keyframes button-hover-visible {
+  from {
+    visibility: hidden;
+    opacity: 0%;
+  }
+  to {
+    visibility: visible;
+    opacity:100%;
+  }
+}
+
+.linha:hover .hover-button {
+animation-name: button-hover-visible ;
+    animation-duration: 0.8s;
+    opacity:100%;
+}
+
+
+.linha .hover-button {
+    opacity: 0%;
+}
+
