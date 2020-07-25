@@ -40,17 +40,17 @@ if (mysqli_num_rows($consulta) != 1) : ?>
             foreach ($tabela as $key => $value) :
             ?>
                 <tr class="linha">
-                    <td id="categoria-<?php echo $value[0]?>">
+                    <td id="categoria-<?php echo $value[0] ?>">
                         <?php echo $value[1] ?>
                     </td>
-                    <td id="descricao-<?php echo $value[0]?>">
+                    <td id="descricao-<?php echo $value[0] ?>">
                         <?php echo $value[2] ?>
                     </td>
                     <td>
 
-                        <i class="material-icons hover-button" id="editBtn-<?php echo $value[0]?>" onclick="btnEditCat(this)">edit</i>
-                        <i class="material-icons hover-button" id="listBtn-<?php echo $value[0]?>">list</i>
-                        <i class="material-icons hover-button" id="deleteBtn-<?php echo $value[0]?>">delete_forever</i>
+                        <i class="material-icons hover-button" id="editBtn-<?php echo $value[0] ?>" onclick="editBtn(this)">edit</i>
+                        <i class="material-icons hover-button" id="listBtn-<?php echo $value[0] ?>">list</i>
+                        <i class="material-icons hover-button" id="deleteBtn-<?php echo $value[0] ?>">delete_forever</i>
 
                     </td>
                 </tr>

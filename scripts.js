@@ -1,21 +1,14 @@
-function btnEditCat(botao) {
-  var celId = botao.getAttribute("id");
-  celId = celId.slice(8);
-  var categoria = "categoria-";
-  var descricao = "descricao-";
-  // document.getElementById(categoria.concat(celId)).contentEditable = true;
-  var catText = document.getElementById(categoria.concat(celId)).innerText;
-  var descText = document.getElementById(descricao.concat(celId)).innerText;
-  var newCat = document.createElement("textarea");
-  var newDesc = document.createElement("textarea");
-  newCat.innerText = catText;
-  newDesc.innerText = descText;
+function editBtn(btn) {
+  var tabela = document.getElementById("tabela");
 
-  document.getElementById(categoria.concat(celId)).innerText = "";
-  document.getElementById(descricao.concat(celId)).innerText = "";
-
-  document.getElementById(categoria.concat(celId)).append(newCat);
-  document.getElementById(descricao.concat(celId)).append(newDesc);
-
-  console.log(celId);
+  for (var i = 0, row; (row = tabela.rows[i]); i++) {
+    //iterate through rows
+    //rows would be accessed using the "row" variable assigned in the for loop
+    for (var j = 0, col; (col = row.cells[j]); j++) {
+      //iterate through columns
+      //columns would be accessed using the "col" variable assigned in the for loop
+      var elements = col.getElementsByTagName("i");
+      console.log(elements[0], elements[1], elements[2]);
+    }
+  }
 }
