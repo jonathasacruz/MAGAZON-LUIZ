@@ -1,21 +1,24 @@
-function btnEditCat(botao) {
-  var celId = botao.getAttribute("id");
-  celId = celId.slice(8);
-  var categoria = "categoria-";
-  var descricao = "descricao-";
-  // document.getElementById(categoria.concat(celId)).contentEditable = true;
-  var catText = document.getElementById(categoria.concat(celId)).innerText;
-  var descText = document.getElementById(descricao.concat(celId)).innerText;
-  var newCat = document.createElement("textarea");
-  var newDesc = document.createElement("textarea");
-  newCat.innerText = catText;
-  newDesc.innerText = descText;
+function editBtn(btn) {
+  var tabela, elements, categoria, descricao;
 
-  document.getElementById(categoria.concat(celId)).innerText = "";
-  document.getElementById(descricao.concat(celId)).innerText = "";
+  elements = btn.parentElement.parentElement.parentElement.getElementsByTagName("td");
+ 
 
-  document.getElementById(categoria.concat(celId)).append(newCat);
-  document.getElementById(descricao.concat(celId)).append(newDesc);
+  categoria = elements[0].innerText;
+  descricao = elements[1].innerText;
+  console.log(elements[1].innerText);
+  
 
-  console.log(celId);
+  document.getElementById("nomeCategoria").innerHTML = categoria;
+  document.getElementById("descricaoCategoria").innerHTML = descricao;
+  
+
+  
 }
+
+M.AutoInit();
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems, options);
+});

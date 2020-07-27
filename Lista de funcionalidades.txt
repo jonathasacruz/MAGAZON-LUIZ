@@ -20,7 +20,7 @@ Lista de páginas
 [/] Página para gerenciar categorias
     [/] tabela com lista de categorias com três botões: Exibir produtos, editar categoria, excluir categoria.
         [ ] Excluir gera popup de confirmação
-    [ ] O botão exibir produtos abre uma janela flutuante com uma tabela de produtos da categoria selecionada.
+    [ ] O botão exibir produtos abre uma janela flutuante(modal) com uma tabela de produtos da categoria selecionada.
     [ ] Cadastrar categoria
 [/] Página para gerenciar produtos
     [/] Tabela com lista de produtos,
