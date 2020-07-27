@@ -51,7 +51,9 @@ if (mysqli_num_rows($consulta) != 1) : ?>
                     </td>
                     <td>
 
-                        <a class="btn-floating btn-small waves-effect waves-light blue lighten-2 btn modal-trigger hover-button" href="#modalEdit"><i class="small material-icons" id="editBtn-<?php echo $value[0] ?>" onclick="editBtn(this)">edit</i></a>
+                        <a class="waves-effect waves-light btn modal-trigger hover-button" href="#modalEdit">
+                            <i class="small material-icons" id="editBtn-<?php echo $value[0] ?>" onclick="editBtn(this)">edit</i></a>
+
                         <i class="small material-icons hover-button" id="listBtn-<?php echo $value[0] ?>">list</i>
                         <i class="small material-icons hover-button" id="deleteBtn-<?php echo $value[0] ?>">delete_forever</i>
 
@@ -62,19 +64,35 @@ if (mysqli_num_rows($consulta) != 1) : ?>
             ?>
         </tbody>
     </table>
+
+
+    <div id="modalEdit" class="modal">
+        <div class="modal-content">
+            <h4>Editar categoria</h4>
+            <div>
+                <h5>Nome da Categoria:</h5>
+                <textarea id="nomeCategoria"></textarea>
+            </div>
+            <div>
+                <h5>Descrição da Categoria:</h5>
+                <textarea id="descricaoCategoria"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-light waves-effect red darken-1 btn">GRAVAR!
+                <i class="small material-icons">add</i>
+
+            </a>
+            <a href="#!" class="modal-close waves-effect teal darken-1 btn">CANCELAR
+                <i class="small material-icons">clear</i>
+            </a>
+        </div>
+    </div>
+
+
 <?php endif; ?>
 
 
 <?php
 require_once 'footer.php';
 ?>
-
-<div id="modalEdit" class="modal">
-    <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-</div>
