@@ -17,7 +17,6 @@ CREATE TABLE IF NOT EXISTS categorias(
     PRIMARY KEY (idCategoria)
 );
 
-idProduto`, `nomeProduto`, `descProduto`, `precoCompraProduto`, `precoVendaProduto`, `qtdEstoque`, `idCategoria` , `dataInsercao`, `dataAtualizacao
 CREATE TABLE IF NOT EXISTS produtos(
 	idProduto INT NOT NULL AUTO_INCREMENT,
     nomeProduto VARCHAR(255) NOT NULL,
