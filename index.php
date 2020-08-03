@@ -4,8 +4,6 @@ require_once 'head.php';
 ?>
 
 <?php
-
-
 if (isset($_POST['botao-entrar'])) {
 	//Valida entradas e verifica campos obrigatórios
 	$login = mysqli_escape_string($connect, $_POST['login']);
@@ -25,8 +23,11 @@ if (isset($_POST['botao-entrar'])) {
 		$passwordhash = mysqli_fetch_array($consulta);
 		if (mysqli_num_rows($consulta) == 1 and password_verify($senha, $passwordhash['senha'])) {
 			$_SESSION['login'] = $login;
-			$_SESSION['usuario'] = $passwordhash['nome'];
-			header("Location: gerenciarcategorias.php");
+			$_SESSION['usuario'] = $passwordhash['nome']; ?>
+			<script>
+				window.location = "gerenciarcategorias.php"
+			</script>
+<?php
 		} else {
 			$erros['no_login'] = "Usuário inexistente ou senha incorreta";
 		}
