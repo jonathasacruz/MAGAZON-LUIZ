@@ -8,18 +8,21 @@ require_once 'head.php';
 $login = mysqli_escape_string($connect, $_SESSION['login']);
 $sql = "SELECT nome login FROM usuarios WHERE login = '$login'";
 $consulta = mysqli_query($connect, $sql);
-$usuario = mysqli_fetch_all($consulta);
+$usuario = mysqli_fetch_all($consulta); 
 
 if (mysqli_num_rows($consulta) != 1) : ?>
     <text> ESSA É UMA ÁREA RESTRITA, FAÇA LOGIN.</text> <br> <button type="button" name="index" onclick="location.href='index.php'">LOGIN</button>
 <?php else : ?>
-    <button class="waves-effect waves-light btn" name="gerenciar-produtos" onclick="location.href='gerenciarprodutos.php'">Gerenciar Produtos</button>
-    <button class="waves-effect waves-light btn" name="gerenciar-categorias" onclick="location.href='gerenciarcategorias.php'">Gerenciar Categorias</button>
-    <button class="waves-effect waves-light btn" name="sair" onclick="location.href='logout.php'">SAIR</button>
+    <div class="row">
+    <button class="col s4 m3 waves-effect waves-light btn-small" name="gerenciar-produtos" onclick="location.href='gerenciarprodutos.php'">Produtos</button>
+    <button class="col s4 m3 waves-effect waves-light btn" name="gerenciar-categorias" onclick="location.href='gerenciarcategorias.php'">Categorias</button>
+    <button class="col s4 m3 waves-effect waves-light btn" name="sair" onclick="location.href='logout.php'">SAIR</button>
+    </div>
 
-    <table class="stripped responsive-table highlight" id="tabela">
+    <div class="row">
+    <table class="stripped table highlight centered" id="tabela">
         <thead>
-            <tr>
+            <tr class="">
                 <th>Categoria</th>
                 <th>Descrição</th>
                 <th></th>
@@ -64,6 +67,7 @@ if (mysqli_num_rows($consulta) != 1) : ?>
             ?>
         </tbody>
     </table>
+    </div>
 
 
     <div id="modalEdit" class="modal">
