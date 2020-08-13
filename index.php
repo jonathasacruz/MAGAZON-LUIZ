@@ -37,31 +37,33 @@ if (isset($_POST['botao-entrar'])) {
 }
 
 ?>
-<div class="row">
+<div class="row z-depth-3 blue-grey darken-4 white-text">
 	<form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="POST">
 
 		<div class="input-field col s12 m8 offset-m4 pull-m4">
 			<i class="material-icons prefix">account_circle</i>
 			<label for="login">Login:</label>
-			<input type="text" id="login" name="login">
-			<span class="erro"><?php echo $erros['login']; ?></span>
+			<input type="text" id="login" name="login" class="white-text">
+			<span class="erro col offset-s1 red-text text-lighten-1"><?php echo $erros['login']; ?></span>
 		</div>
 
 		<div class="input-field col s12 m8 offset-m4 pull-m4">
 			<i class="material-icons prefix">vpn_key</i>
 			<label for="senha">Senha:</label>
-			<input type="password" id="senha" name="senha">
-			<span class="erro"><?php echo $erros['senha']; ?></span>
+			<input type="password" id="senha" name="senha" class="white-text">
+			<span class="erro col offset-s1 red-text text-lighten-1"><?php echo $erros['senha']; ?></span>
 		</div>
 
 		<div>
-			<button class="col s5 m2 waves-effect waves-light btn-small" type="submit" name="botao-entrar">Entrar</button>
-			<button class="col s5 push-s2 m2 push-m1 waves-effect waves-light btn-small" type="button" name="botao-cadastrar" onclick="location.href='cadastrousuario.php'">Cadastrar Usuário</button>
+			<button class="col waves-effect waves-light btn-small" type="submit" name="botao-entrar">Entrar</button>
+			<button class="col push-s1 waves-effect waves-light btn-small" type="button" name="botao-cadastrar" onclick="location.href='cadastrousuario.php'">Cadastrar Usuário</button>
 		</div>
+		
+		<div class="col s12"><?php echo $erros['no_login']; ?></div>
+		
 	</form>
 	<!-- Erro exibido em caso de erro no usuário ou senha -->
-	<span class="erro"><?php echo $erros['no_login']; ?></span>
-	<br>
+
 </div>
 <?php
 require_once 'footer.php';

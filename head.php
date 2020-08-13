@@ -18,7 +18,7 @@
   <title>Magazon Luiz - Estoque</title>
 </head>
 
-<body class="blue-grey darken-4 blue-grey-text text-lighten-5">
+<body class="blue-grey darken-4 white-text">
   <div class="container">
     <?php
     $erros['matricula'] = $erros['nome'] = $erros['login'] = $erros['senha'] = $erros['no_login'] = "";
@@ -29,14 +29,20 @@
 
     ?>
 
-    <div class="nav-wrapper blue-grey darken-3 blue-grey-text text-lighten-5">
-      <h5 class="nav-title">Magazon Luiz - Estoque&nbsp;</h5>
-    </div>
+    <nav class="nav-extended z-depth-3 blue-grey darken-4 white-text">
+      <div class="nav-wrapper">
+        <h4 class="center">Magazon Luiz - ESTOQUE &nbsp;</h4>
 
-    <!-- Verifica se o usuário está logado e apresenta mensagem de boas vindas -->
-    <?php
-    if (!is_null($_SESSION['login'])) {
-    ?>
-      <text class="flow-text"> Bem vindo <?php echo $_SESSION['usuario']; ?> </text>
-    <?php
-    } ?>
+      </div>
+
+
+      <!-- Verifica se o usuário está logado e apresenta mensagem de boas vindas -->
+      <?php
+      if (!is_null($_SESSION['login'])) {
+      ?>
+        <h6 class="flow-text"> Bem vindo <?php echo $_SESSION['usuario']; ?></h6>
+      <?php
+      } ?>
+
+    </nav>
+    <div class="divider"></div>
