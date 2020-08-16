@@ -20,3 +20,18 @@ animation-name: button-hover-visible ;
     opacity: 0%;
 }
 
+nav{
+    width: 90%
+}
+
+@media only screen and (min-width: 601px) {
+    nav {
+        width:85%
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    nav {
+        width:70%
+    }
+}

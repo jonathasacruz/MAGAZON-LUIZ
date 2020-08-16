@@ -58,9 +58,9 @@ if (isset($_POST['botao-entrar'])) {
 			<button class="col waves-effect waves-light btn-small" type="submit" name="botao-entrar">Entrar</button>
 			<button class="col push-s1 waves-effect waves-light btn-small" type="button" name="botao-cadastrar" onclick="location.href='cadastrousuario.php'">Cadastrar Usuário</button>
 		</div>
-		
+
 		<div class="col s12"><?php echo $erros['no_login']; ?></div>
-		
+
 	</form>
 	<!-- Erro exibido em caso de erro no usuário ou senha -->
 
