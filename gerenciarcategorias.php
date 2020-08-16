@@ -21,7 +21,7 @@ if (mysqli_num_rows($consulta) != 1) : ?>
     <div class="navbar-fixed">
         <nav class="z-depth-1 blue-grey darken-3 white-text">
             <div class="nav-wrapper">
-                <div class="row" style="margin: 0px; height: fit-content;">
+                <div class="row">
                     <div>
                         <button class="col s5 m3 waves-effect waves-light btn-small z-depth-1" name="gerenciar-categorias" onclick="location.href='gerenciarcategorias.php'">Categorias</button>
                         <button class="col s5 offset-s2 m3 waves-effect waves-light btn-small z-depth-1" name="gerenciar-produtos" onclick="location.href='gerenciarprodutos.php'">Produtos</button>

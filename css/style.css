@@ -21,17 +21,20 @@ animation-name: button-hover-visible ;
 }
 
 nav{
-    width: 90%
+    width: 90%;
+    margin: 0px;
 }
 
 @media only screen and (min-width: 601px) {
     nav {
-        width:85%
+        width:85%;
+        margin: 0px;
     }
 }
 
 @media only screen and (min-width: 993px) {
     nav {
-        width:70%
+        width:70%;
+        margin: 0px;
     }
 }
