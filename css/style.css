@@ -5,36 +5,39 @@
   }
   to {
     visibility: visible;
-    opacity:100%;
+    opacity: 100%;
   }
 }
 
 .linha:hover .hover-button {
-animation-name: button-hover-visible ;
-    animation-duration: 0.8s;
-    opacity:100%;
+  animation-name: button-hover-visible;
+  animation-duration: 0.8s;
+  opacity: 100%;
 }
-
 
 .linha .hover-button {
-    opacity: 0%;
+  opacity: 0%;
 }
 
-nav{
-    width: 90%;
-    margin: 0px;
+nav {
+  width: 90%;
+  margin: 0px;
 }
 
 @media only screen and (min-width: 601px) {
-    nav {
-        width:85%;
-        margin: 0px;
-    }
+  nav {
+    width: 85%;
+    margin: 0px;
+  }
 }
 
 @media only screen and (min-width: 993px) {
-    nav {
-        width:70%;
-        margin: 0px;
-    }
+  nav {
+    width: 70%;
+    margin: 0px;
+  }
+}
+
+.botoes {
+  height: 32.4px !important;
 }

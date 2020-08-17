@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Compiled and minified CSS -->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
+  <link type="text/css" rel="stylesheet" href="css/materialize.css">
 
   <!-- Local aditional stylesheet -->
   <link type="text/css" rel="stylesheet" href="css/style.css">
@@ -32,20 +32,15 @@
   <!-- Barra de navegação superior com título, saudação e botões -->
   <header>
     <div class="navbar-fixed">
-      <nav class="z-depth-1 blue-grey darken-3 white-text">
-        <div class="nav-extended">
-          <div class="nav-wrapper">
-            <h5 class="center">Magazon Luiz - ESTOQUE</h5>
-          </div>
-          <h6>
-            <?php
-            if (!is_null($_SESSION['login'])) {
-            ?>
-              Bem vindo <?php echo $_SESSION['usuario']; ?>
-            <?php
-            } ?>
-          </h6>
+      <nav class="nav-extended z-depth-1 blue-grey darken-3 white-text">
+        <div class="nav-wrapper">
+          <h5 class="center">Magazon Luiz - ESTOQUE</h5>
+          <?php
+          if (!is_null($_SESSION['login'])) {
+          ?><h6>Bem vindo <?php echo $_SESSION['usuario'];
+                        } ?></h6>
         </div>
       </nav>
     </div>
   </header>
+  <br>

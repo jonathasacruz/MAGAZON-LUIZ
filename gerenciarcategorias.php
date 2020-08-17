@@ -12,37 +12,19 @@ $usuario = mysqli_fetch_all($consulta);
 
 if (mysqli_num_rows($consulta) != 1) : ?>
     <text> ESSA É UMA ÁREA RESTRITA, FAÇA LOGIN.</text> <br> <button type="button" name="index" onclick="location.href='index.php'">LOGIN</button>
-<?php else : ?>
+<?php else : 
 
-
-
-
-
-    <div class="navbar-fixed">
-        <nav class="z-depth-1 blue-grey darken-3 white-text">
-            <div class="nav-wrapper">
-                <div class="row">
-                    <div>
-                        <button class="col s5 m3 waves-effect waves-light btn-small z-depth-1" name="gerenciar-categorias" onclick="location.href='gerenciarcategorias.php'">Categorias</button>
-                        <button class="col s5 offset-s2 m3 waves-effect waves-light btn-small z-depth-1" name="gerenciar-produtos" onclick="location.href='gerenciarprodutos.php'">Produtos</button>
-                        <button class="col s2 offset-s10 m2 offset-m4 waves-effect waves-light btn-small red lighten-2 z-depth-1" name="sair" onclick="location.href='logout.php'">SAIR</button>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
-
-
-
-
-    <div class="container">
+require_once 'botoesnavegacao.php';
+?>
+    <!-- Área da tabela -->
+    <div class="">
         <div class="row">
-            <table class="stripped table highlight centered" id="tabela">
+            <table class=" col s12 stripped table highlight centered" id="tabela">
                 <thead>
-                    <tr class="">
-                        <th>Categoria</th>
-                        <th>Descrição</th>
-                        <th></th>
+                    <tr class="row ">
+                        <th class="col s3">Categoria</th>
+                        <th class="col s7">Descrição</th>
+                        <th class="col s2"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,31 +44,37 @@ if (mysqli_num_rows($consulta) != 1) : ?>
 
                     foreach ($tabela as $key => $value) :
                     ?>
-                        <tr class="linha" id="linha-<?php echo $value[0] ?>">
-                            <td id="categoria-<?php echo $value[0] ?>">
+                        <tr class="linha row" id="linha-<?php echo $value[0] ?>">
+                            <td class="col s3" id="categoria-<?php echo $value[0] ?>">
                                 <?php echo $value[1] ?>
                             </td>
-                            <td id="descricao-<?php echo $value[0] ?>">
+                            <td class="col s7"id="descricao-<?php echo $value[0] ?>">
                                 <?php echo $value[2] ?>
                             </td>
-                            <td>
-
-                                <a class="waves-effect waves-light btn-flat modal-trigger" href="#modalEdit">
-                                    <i class="tiny material-icons icon-blue" id="editBtn-<?php echo $value[0] ?>" onclick="editBtn(this)">edit</i></a>
-
-                                <i class="small material-icons" id="listBtn-<?php echo $value[0] ?>">list</i>
-                                <i class="small material-icons" id="deleteBtn-<?php echo $value[0] ?>">delete_forever</i>
+                            <td class="row col s2">
+                                <a class="col s3 btn-flat modal-trigger" href="#modalEdit">
+                                    <i class="material-icons small white-text" id="editBtn-<?php echo $value[0] ?>" onclick="editBtn(this)">edit</i>
+                                </a>
+                                <a class="col s3 offset-s1">
+                                    <i class="material-icons small blue-text" id="listBtn-<?php echo $value[0] ?>">list</i>
+                                </a>
+                                <a class="col s3 offset-s1">
+                                    <i class="material-icons small red-text" id="deleteBtn-<?php echo $value[0] ?>">delete_forever</i>
+                                </a>
 
                             </td>
                         </tr>
                     <?php
-                    endforeach
+                    endforeach;
                     ?>
                 </tbody>
             </table>
         </div>
 
 
+        <!-- MODAIS DA PÁGINA -->
+
+        <!-- Modal de edição de categoria -->
         <div id="modalEdit" class="modal">
             <div class="modal-content">
                 <h4>Editar categoria</h4>
@@ -110,6 +98,7 @@ if (mysqli_num_rows($consulta) != 1) : ?>
             </div>
         </div>
 
+        <!-- Modal de confirmação de alteração -->
         <div id="modalConfirmacao" class="modal">
             <div class="modal-content">
                 <h4 class="red-text">Deseja confirmar a alteração?</h4>
@@ -126,11 +115,6 @@ if (mysqli_num_rows($consulta) != 1) : ?>
                     <i class="small material-icons">clear</i>
                 </a>
             </div>
-
-
-
-            <!-- </div> -->
-
         </div>
     <?php endif; ?>
 
