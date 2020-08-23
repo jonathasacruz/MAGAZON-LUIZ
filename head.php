@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php require_once 'validacao.php';?>
 <!DOCTYPE html>
 <html>
 
@@ -37,7 +38,7 @@
           <h5 class="center">Magazon Luiz - ESTOQUE</h5>
           <?php
           if (!is_null($_SESSION['login'])) {
-          ?><h6>Bem vindo <?php echo $_SESSION['usuario'];
+          ?><h6>Bem vindo <?php echo secure_data($_SESSION['usuario']);
                         } ?></h6>
         </div>
       </nav>

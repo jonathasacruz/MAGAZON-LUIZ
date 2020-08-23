@@ -8,10 +8,10 @@ require_once 'head.php';
 
 if (isset($_POST['cadastrar'])) {
 	//Valida entradas e verifica campos obrigatórios
-	$matricula =  (int)mysqli_real_escape_string($connect, $_POST['matricula']);
-	$nome = mysqli_real_escape_string($connect, $_POST['nome']);
-	$login = mysqli_escape_string($connect, $_POST['login']);
-	$senha = mysqli_escape_string($connect, $_POST['senha']);
+	$matricula =  secure_data((int)mysqli_real_escape_string($connect, $_POST['matricula']));
+	$nome = secure_data(mysqli_real_escape_string($connect, $_POST['nome']));
+	$login = secure_data(mysqli_escape_string($connect, $_POST['login']));
+	$senha = secure_data(mysqli_escape_string($connect, $_POST['senha']));
 	
 	if (empty($matricula) || !is_int($matricula)) {
 		$erros['matricula'] = '*Campo numérico obrigatório';
@@ -48,7 +48,7 @@ if (isset($_POST['cadastrar'])) {
 
 ?>
 
-<form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="POST">
+<form action=<?php echo secure_data(htmlspecialchars($_SERVER['PHP_SELF'])); ?> method="POST">
 
 	<label> Matrícula:</label>
 	<input type="number" step="1" min="0" name="matricula">

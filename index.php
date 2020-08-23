@@ -1,31 +1,35 @@
 <?php
 require_once 'db_connect.php';
 require_once 'head.php';
+
 ?>
 
 <?php
 // Verifica se usuário preencheu login e senha
 if (isset($_POST['botao-entrar'])) {
 	//Valida entradas e verifica campos obrigatórios
-	$login = mysqli_escape_string($connect, $_POST['login']);
-	$senha = mysqli_escape_string($connect, $_POST['senha']);
+	$login = secure_data(mysqli_escape_string($connect, $_POST['login']));
 	//$senha = password_hash($senha,PASSWORD_DEFAULT);
+	$senha = secure_data(mysqli_escape_string($connect, $_POST['senha']));
 	if (empty($login)) {
 		$erros['login'] = '*Campo obrigatório';
+	}	else{
+		$erros['login'] = "";
 	}
 	if (empty($senha)) {
 		$erros['senha'] = '*Campo obrigatório';
 		//Consulta usuário e senha no banco de dados
-	} elseif (!empty($login) && !empty($senha)) {
-		$erros['login'] = "";
+	} else{
 		$erros['senha'] = "";
+	} 
+	if (!empty($login) && !empty($senha)) {
 		$sql = "SELECT * FROM usuarios WHERE login = '$login'";
 		$consulta = mysqli_query($connect, $sql);
 		// Verifica se usuário e senha após encriptação confere com o banco de dados e redireciona para a página de gerenciamento de categoria
 		$passwordhash = mysqli_fetch_array($consulta);
 		if (mysqli_num_rows($consulta) == 1 and password_verify($senha, $passwordhash['senha'])) {
 			$_SESSION['login'] = $login;
-			$_SESSION['usuario'] = $passwordhash['nome']; ?>
+			$_SESSION['usuario'] = secure_data($passwordhash['nome']); ?>
 			<script>
 				window.location = "gerenciarcategorias.php"
 			</script>
@@ -38,7 +42,7 @@ if (isset($_POST['botao-entrar'])) {
 
 ?>
 <div class="row z-depth-3 blue-grey darken-4 white-text">
-	<form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="POST">
+	<form action=<?php echo secure_data($_SERVER['PHP_SELF']); ?> method="POST">
 
 		<div class="input-field col s12 m8 offset-m4 pull-m4">
 			<i class="material-icons prefix">account_circle</i>

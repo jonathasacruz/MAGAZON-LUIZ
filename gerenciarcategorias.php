@@ -1,20 +1,21 @@
 <?php
 require_once 'db_connect.php';
 require_once 'head.php';
+
 ?>
 
 <?php
 
-$login = mysqli_escape_string($connect, $_SESSION['login']);
+$login = secure_data(mysqli_escape_string($connect, $_SESSION['login']));
 $sql = "SELECT nome login FROM usuarios WHERE login = '$login'";
 $consulta = mysqli_query($connect, $sql);
 $usuario = mysqli_fetch_all($consulta);
 
 if (mysqli_num_rows($consulta) != 1) : ?>
     <text> ESSA É UMA ÁREA RESTRITA, FAÇA LOGIN.</text> <br> <button type="button" name="index" onclick="location.href='index.php'">LOGIN</button>
-<?php else : 
+<?php else :
 
-require_once 'botoesnavegacao.php';
+    require_once 'botoesnavegacao.php';
 ?>
     <!-- Área da tabela -->
     <div class="">
@@ -44,22 +45,22 @@ require_once 'botoesnavegacao.php';
 
                     foreach ($tabela as $key => $value) :
                     ?>
-                        <tr class="linha row" id="linha-<?php echo $value[0] ?>">
-                            <td class="col s3" id="categoria-<?php echo $value[0] ?>">
-                                <?php echo $value[1] ?>
+                        <tr class="linha row" id="linha-<?php echo secure_data($value[0]) ?>">
+                            <td class="col s3" id="categoria-<?php echo secure_data($value[0]) ?>">
+                                <?php echo secure_data($value[1]) ?>
                             </td>
-                            <td class="col s7"id="descricao-<?php echo $value[0] ?>">
-                                <?php echo $value[2] ?>
+                            <td class="col s7" id="descricao-<?php echo secure_data($value[0]) ?>">
+                                <?php echo secure_data($value[2]) ?>
                             </td>
                             <td class="row col s2">
                                 <a class="col s3 btn-flat modal-trigger" href="#modalEdit">
-                                    <i class="material-icons small white-text" id="editBtn-<?php echo $value[0] ?>" onclick="editBtn(this)">edit</i>
+                                    <i class="material-icons small white-text" id="editBtn-<?php echo secure_data($value[0]) ?>" onclick="editBtn(this)">edit</i>
                                 </a>
                                 <a class="col s3 offset-s1">
-                                    <i class="material-icons small blue-text" id="listBtn-<?php echo $value[0] ?>">list</i>
+                                    <i class="material-icons small blue-text" id="listBtn-<?php echo secure_data($value[0]) ?>">list</i>
                                 </a>
                                 <a class="col s3 offset-s1">
-                                    <i class="material-icons small red-text" id="deleteBtn-<?php echo $value[0] ?>">delete_forever</i>
+                                    <i class="material-icons small red-text" id="deleteBtn-<?php echo secure_data($value[0]) ?>">delete_forever</i>
                                 </a>
 
                             </td>

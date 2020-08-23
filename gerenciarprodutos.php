@@ -1,11 +1,12 @@
 <?php
 require_once 'db_connect.php';
 require_once 'head.php';
+
 ?>
 
 <?php
 
-$login = mysqli_escape_string($connect, $_SESSION['login']);
+$login = secure_data(mysqli_escape_string($connect, $_SESSION['login']));
 $sql = "SELECT nome login FROM usuarios WHERE login = '$login'";
 $consulta = mysqli_query($connect, $sql);
 $usuario = mysqli_fetch_all($consulta);
@@ -61,11 +62,11 @@ if (mysqli_num_rows($consulta) != 1) : ?>
                         <tr>
                             <?php
 
-                            $value[3] = 'R$ ' . number_format($value[3], 2, ",", ".");
-                            $value[4] = 'R$ ' . number_format($value[4], 2, ",", ".");
-                            $value[7] = date_format(date_create($value[7]), 'd/m/Y');
-                            $value[8] = date_format(date_create($value[8]), 'd/m/Y');
-                            $value[6] = $categorias[$value[6] - 1][1];
+                            $value[3] = 'R$ ' . number_format(secure_data($value[3]), 2, ",", ".");
+                            $value[4] = 'R$ ' . number_format(secure_data($value[4]), 2, ",", ".");
+                            $value[7] = date_format(date_create(secure_data($value[7])), 'd/m/Y');
+                            $value[8] = date_format(date_create(secure_data($value[8])), 'd/m/Y');
+                            $value[6] = $categorias[secure_data($value[6]) - 1][1];
 
                             foreach ($value as $key => $values) :
                                 if ($key > 0) :
