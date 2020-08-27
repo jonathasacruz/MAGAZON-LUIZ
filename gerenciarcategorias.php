@@ -76,19 +76,19 @@ if (mysqli_num_rows($consulta) != 1) : ?>
         <!-- MODAIS DA PÁGINA -->
 
         <!-- Modal de edição de categoria -->
-        <div id="modalEdit" class="modal">
+        <div id="modalEdit" class="modal blue-grey darken-3 white-text">
             <div class="modal-content">
                 <h4>Editar categoria</h4>
                 <div>
-                    <h5>Nome da Categoria:</h5>
-                    <textarea id="nomeCategoria"></textarea>
+                <h5>Nome da Categoria:</h5>
+                <textarea class="white-text" id="nomeCategoria"></textarea>
                 </div>
                 <div>
-                    <h5>Descrição da Categoria:</h5>
-                    <textarea id="descricaoCategoria"></textarea>
+                <h5>Descrição da Categoria:</h5>
+                <textarea class="white-text" id="descricaoCategoria"></textarea>
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer blue-grey darken-3 white-text">
                 <a href="#modalConfirmacao" class="modal-close modal-trigger waves-light waves-effect red darken-1 btn">GRAVAR!
                     <i class="small material-icons">add</i>
 
@@ -100,7 +100,7 @@ if (mysqli_num_rows($consulta) != 1) : ?>
         </div>
 
         <!-- Modal de confirmação de alteração -->
-        <div id="modalConfirmacao" class="modal">
+        <div id="modalConfirmacao" class="modal blue-grey darken-3 white-text">
             <div class="modal-content">
                 <h4 class="red-text">Deseja confirmar a alteração?</h4>
 
